@@ -317,26 +317,49 @@ print('✅ MCP配置成功' if c.api_key else '❌ MCP未配置')
 
 ---
 
-## 贡献指南
+## 贡献与反馈
 
 ### 提交Issue
 
-- Bug反馈
-- 功能建议
-- 文档改进
+我们欢迎各种形式的反馈和贡献：
+
+- **Bug反馈** - 发现代码错误或异常行为
+- **功能建议** - 新功能需求或改进建议
+- **使用问题** - 安装、配置、使用过程中的疑问
+- **文档改进** - 文档错误或不够清晰的地方
+
+👉 [提交Issue](https://github.com/duhu2000/supply-chain-qcc-enhanced/issues)
 
 ### 提交PR
 
 1. Fork本仓库
-2. 创建feature分支
-3. 提交修改
-4. 创建Pull Request
+2. 创建feature分支 (`git checkout -b feature/your-feature`)
+3. 提交修改 (`git commit -am 'Add some feature'`)
+4. 推送到分支 (`git push origin feature/your-feature`)
+5. 创建Pull Request
 
 ### 代码规范
 
 - Python代码遵循PEP 8
 - SKILL文档使用Markdown
 - 新增功能需包含测试用例
+- 提交前确保代码语法检查通过
+
+---
+
+## 联系方式
+
+- **GitHub Issues**: [https://github.com/duhu2000/supply-chain-qcc-enhanced/issues](https://github.com/duhu2000/supply-chain-qcc-enhanced/issues)
+- **企查查MCP官网**: [https://mcp.qcc.com](https://mcp.qcc.com)
+- **Email**: duhu@qcc.com
+
+---
+
+## 致谢
+
+- 原版作者 [Panaversity](https://github.com/panaversity/agentfactory-business-plugins) 的优秀供应链技能框架
+- [企查查MCP](https://mcp.qcc.com) - 首个Agent-Native企业数据基座
+- [Anthropic](https://anthropic.com) 的 Claude Code
 
 ---
 
