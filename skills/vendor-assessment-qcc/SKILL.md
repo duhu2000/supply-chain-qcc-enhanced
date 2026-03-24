@@ -22,8 +22,54 @@ metadata:
   mcp-integrations: "QCC MCP (Enterprise/Risk/IP/Business), ERP, Web Search"
 ---
 
+## MCP Configuration Requirements
+
+**⚠️ IMPORTANT: Before using this skill, ensure QCC MCP servers are configured**
+
+### Checklist:
+1. ✅ `~/.claude/.mcp.json` exists and is properly configured
+2. ✅ `QCC_MCP_API_KEY` environment variable is set
+3. ✅ Claude Code has been restarted to load MCP configuration
+
+### Configuration:
+```bash
+# 1. Create MCP config file
+cat > ~/.claude/.mcp.json << 'EOF'
+{
+  "mcpServers": {
+    "qcc-company": {
+      "url": "https://mcp.qcc.com/data/company/stream",
+      "headers": { "Authorization": "Bearer ${QCC_MCP_API_KEY}" }
+    },
+    "qcc-risk": {
+      "url": "https://mcp.qcc.com/data/risk/stream",
+      "headers": { "Authorization": "Bearer ${QCC_MCP_API_KEY}" }
+    },
+    "qcc-ipr": {
+      "url": "https://mcp.qcc.com/data/ipr/stream",
+      "headers": { "Authorization": "Bearer ${QCC_MCP_API_KEY}" }
+    },
+    "qcc-operation": {
+      "url": "https://mcp.qcc.com/data/operation/stream",
+      "headers": { "Authorization": "Bearer ${QCC_MCP_API_KEY}" }
+    }
+  }
+}
+EOF
+
+# 2. Set API Key
+export QCC_MCP_API_KEY="your_api_key_here"
+
+# 3. Restart Claude Code
+```
+
+See: https://github.com/duhu2000/supply-chain-qcc-enhanced/blob/main/docs/MCP_CONFIGURATION.md
+
+---
+
 ## UNIVERSAL RULES (apply to every vendor task)
 
+- **NEVER** use web search for Chinese suppliers -- always use qcc-company, qcc-risk MCP tools
 - NEVER classify a sole-source supplier as low risk based on spend alone --
   always assess operational dependency separately from spend volume
 - NEVER accept a vendor risk assessment that contains fabricated financial
