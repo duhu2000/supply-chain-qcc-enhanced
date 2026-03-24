@@ -368,14 +368,6 @@ Apache License 2.0
 
 ---
 
-## 致谢
-
-- 原版作者 Panaversity 的优秀供应链技能框架
-- [企查查MCP](https://mcp.qcc.com) - Agent-Native企业数据基座
-- [Anthropic](https://anthropic.com) 的 Claude Code
-
----
-
 <div align="center">
 
 **让供应商评估从"数据盲区"走向"全面透视"** 🔍
