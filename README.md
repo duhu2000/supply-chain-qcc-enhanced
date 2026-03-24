@@ -88,7 +88,7 @@
 
 ```bash
 # 1. 一键安装
-bash <(curl -sL https://raw.githubusercontent.com/your-repo/supply-chain-qcc/main/install_qcc_mcp_supply_chain.sh)
+bash <(curl -sL https://raw.githubusercontent.com/duhu2000/supply-chain-qcc-enhanced/main/install_qcc_mcp_supply_chain.sh)
 
 # 2. 配置API Key（从 https://mcp.qcc.com 申请）
 export QCC_MCP_API_KEY="your_api_key_here"
