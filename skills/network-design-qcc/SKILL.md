@@ -1,25 +1,25 @@
 ---
 name: network-design-qcc
 description: >
-  Designs and compares supply chain network scenarios with Chinese supplier
-  intelligence. Activate for: network design, supply chain network, warehouse
-  location, distribution centre, DC placement, nearshoring, reshoring,
-  offshoring, facility consolidation, network optimisation, make vs buy.
+  设计和比较供应链网络场景，整合中国供应商情报。
+  适用于：网络设计、供应链网络、仓库选址、
+  配送中心、DC选址、近岸外包、回岸外包、
+  离岸外包、设施整合、网络优化、自制或外购。
 
-  **QCC MCP Enhanced**: Enriches network scenarios with Chinese supplier
-  stability data and regional risk assessment.
+  **企查查MCP增强版**：用中国供应商稳定性数据和区域风险评估
+  丰富网络场景。
 
-  NOT for: carrier performance (use logistics-brief-qcc), vendor assessment
-  (use vendor-assessment-qcc), spend analysis (use spend-analysis-qcc).
+  不适用于：承运商绩效（使用logistics-brief-qcc）、供应商评估
+  （使用vendor-assessment-qcc）、支出分析（使用spend-analysis-qcc）。
 license: Apache-2.0
 metadata:
-  author: Panaversity (Enhanced with QCC MCP)
+  author: Panaversity (企查查MCP增强版)
   version: "2.0"
   plugin-commands: "/supply-network-design-qcc"
-  mcp-integrations: "QCC MCP (Company/Risk), Network optimisation MCP, ERP"
+  mcp-integrations: "企查查MCP (Company/Risk), Network optimisation MCP, ERP"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
 ```bash
 # ~/.claude/.mcp.json
@@ -33,46 +33,46 @@ metadata:
 
 ---
 
-## QCC ENHANCEMENT — SUPPLIER STABILITY INPUT
+## QCC 增强功能 — 供应商稳定性输入
 
-### Network Design Risk Factors
+### 网络设计风险因素
 
-For scenarios involving Chinese suppliers:
+涉及中国供应商的场景：
 
-1. **Supplier Concentration Risk**
-   - Geographic concentration analysis
-   - Single-source vulnerability
-   - QCC stability scores for key suppliers
+1. **供应商集中度风险**
+   - 地理集中度分析
+   - 单一来源脆弱性
+   - 关键供应商企查查稳定性评分
 
-2. **Regional Risk Assessment**
-   - Province-level supplier density
-   - Infrastructure risk indicators
-   - Policy/regulatory environment
+2. **区域风险评估**
+   - 省级供应商密度
+   - 基础设施风险指标
+   - 政策/监管环境
 
-### QCC Network Input
+### 企查查网络输入
 
 ```
-SUPPLIER STABILITY INPUT — QCC Enhanced
+供应商稳定性输入 — 企查查增强版
 ================================================================
-Key Chinese Suppliers:
-  [Supplier]: [Stability Score] — [Risk Level]
-  [Location]: [Province/City]
+关键中国供应商:
+  [供应商]: [稳定性评分] — [风险等级]
+  [位置]:   [省/市]
 
-Concentration Risk:
-  [X]% of spend in [Region] — [Risk assessment]
+集中度风险:
+  [X]% 支出在[区域] — [风险评估]
 
-Recommended Actions:
-  [Diversification / Dual-sourcing / Accept risk]
+建议行动:
+  [多元化 / 双源采购 / 接受风险]
 ================================================================
 ```
 
 ---
 
-## MANDATORY OUTPUT HEADER
+## 强制输出头
 
 ```
-TASK:          [e.g. Network Design -- EMEA Distribution Review]
-CONFIGURATION: [Loaded: supply-chain.local.md / Not configured]
-DATA SOURCES:  [ERP / TMS / QCC MCP / Network optimisation MCP]
-QCC INPUT:     [Enhanced / Standard]
+任务:          [例如：网络设计 -- EMEA配送审查]
+配置:          [已加载：supply-chain.local.md / 未配置]
+数据来源:      [ERP / TMS / 企查查MCP / Network optimisation MCP]
+企查查输入:    [企查查增强 / 标准]
 ```

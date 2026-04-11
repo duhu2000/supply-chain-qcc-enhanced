@@ -1,28 +1,26 @@
 ---
 name: invoice-reconciliation-qcc
 description: >
-  Activate for: invoice, reconcile, reconciliation, three-way match, two-way
-  match, invoice processing, AP, accounts payable, purchase order match,
-  goods receipt match, invoice exception, price variance, quantity variance,
-  duplicate invoice, invoice approval, invoice hold, invoice dispute, PO
-  mismatch, over-invoiced, under-delivered, missing PO.
+  适用于：发票、对账、三单匹配、两单匹配、发票处理、应付账款、
+  采购订单匹配、收货匹配、发票异常、价格差异、数量差异、
+  重复发票、发票审批、发票搁置、发票争议。
 
-  **QCC MCP Enhanced**: Automatically validates Chinese vendor registration
-  status, bank account details, and risk signals before payment authorization.
+  **企查查MCP增强版**：付款授权前自动验证中国供应商工商登记状态、
+  银行账户详情和风险信号。
 
-  NOT for: bank reconciliation (use banking plugin), vendor assessment
-  (use vendor-assessment-qcc), spend category analysis (use spend-analysis-qcc).
+  不适用于：银行对账（使用banking plugin）、供应商评估
+  （使用vendor-assessment-qcc）、支出类别分析（使用spend-analysis-qcc）。
 license: Apache-2.0
 metadata:
-  author: Panaversity (Enhanced with QCC MCP)
+  author: Panaversity (企查查MCP增强版)
   version: "2.0"
   plugin-commands: "/invoice-reconcile-qcc"
-  mcp-integrations: "QCC MCP (Company/Risk), ERP, AP system"
+  mcp-integrations: "企查查MCP (Company/Risk), ERP, AP system"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
-**⚠️ Important: For Chinese vendor validation, QCC MCP is required**
+**⚠️ 重要：中国企业供应商验证需要企查查MCP**
 
 ```bash
 # ~/.claude/.mcp.json
@@ -42,81 +40,81 @@ metadata:
 
 ---
 
-## QCC ENHANCEMENT — CHINESE VENDOR VALIDATION
+## QCC 增强功能 — 中国企业供应商验证
 
-### Phase 1: Vendor Identity Verification (Before Invoice Processing)
+### 阶段1：供应商身份验证（发票处理前）
 
-For Chinese vendors, **MANDATORY** QCC validation:
+中国企业供应商**强制**企查查验证：
 
-1. **Business Registration Check (qcc-company)**
-   - Verify vendor name matches official registration
-   - Check business status (active/liquidated/revoked)
-   - Validate unified social credit code
-   - Confirm registration address
+1. **工商登记核查（qcc-company）**
+   - 验证供应商名称与工商登记是否匹配
+   - 检查工商状态（存续/注销/吊销）
+   - 验证统一社会信用代码
+   - 确认注册地址
 
-2. **Bank Account Verification**
-   - Cross-reference invoice bank details with QCC records
-   - Flag discrepancies as potential fraud
+2. **银行账户验证**
+   - 将发票银行账户与企查查记录交叉核对
+   - 标记差异作为潜在欺诈
 
-3. **Risk Signal Check (qcc-risk)**
-   - Operating anomaly status
-   - Administrative penalties
-   - Major legal disputes
+3. **风险信号检查（qcc-risk）**
+   - 经营异常状态
+   - 行政处罚
+   - 重大法律纠纷
 
-### QCC Validation Output
+### 企查查验证输出
 
 ```
 ================================================================
-CHINESE VENDOR VALIDATION — QCC Enhanced
+中国企业供应商验证 — 企查查增强版
 ================================================================
-Vendor Name:         [Name]
-Invoice Bank:        [Account Details]
-Query Date:          [YYYY-MM-DD]
+供应商名称:      [名称]
+发票银行账户:    [账户详情]
+查询日期:        [YYYY-MM-DD]
 ----------------------------------------------------------------
-REGISTRATION CHECK:
-  Status:            [Active/Suspended/Liquidated]
-  Credit Code:       [Verified/Not Found]
-  Legal Rep:         [Name]
+登记核查:
+  状态:          [存续/注销/吊销]
+  信用代码:      [已验证/未找到]
+  法定代表人:    [姓名]
 
-RISK SIGNALS:
-  Operating Anomaly: [Yes/No]
-  Admin Penalties:   [Count]
-  Major Litigation:  [Count]
+风险信号:
+  经营异常:      [是/否]
+  行政处罚:      [数量]
+  重大诉讼:      [数量]
 
-VALIDATION RESULT:
-  [✅ CLEARED / ⚠️ ENHANCED REVIEW / ❌ REJECT]
+验证结果:
+  [✅ 通过 / ⚠️ 强化审查 / ❌ 拒绝]
 ================================================================
 ```
 
 ---
 
-## UNIVERSAL RULES
+## 通用规则
 
-- NEVER approve an invoice that has not been matched against a PO (above materiality threshold)
-- NEVER process a duplicate invoice
-- **FOR CHINESE VENDORS: NEVER process payment without QCC registration verification**
-- **FOR CHINESE VENDORS: FLAG if invoice bank details differ from QCC records — fraud risk**
-- ALWAYS include specific recommended actions with deadlines
-
----
-
-## THREE-WAY MATCH ENFORCEMENT
-
-Three-way match requires:
-- Document 1: Invoice (from vendor)
-- Document 2: Purchase Order (from ERP)
-- Document 3: Goods Receipt / Service Confirmation (from operations)
-
-NEVER approve a direct materials invoice without goods receipt confirmation.
+- 绝不批准未与采购订单匹配的发票（超过重要性阈值）
+- 绝不处理重复发票
+- **中国企业供应商：未经企查查登记验证绝不处理付款**
+- **中国企业供应商：如发票银行账户与企查查记录不符 — 标记欺诈风险**
+- 始终包含具体建议行动和截止日期
 
 ---
 
-## MANDATORY OUTPUT HEADER
+## 三单匹配强制执行
+
+三单匹配要求：
+- 文件1：发票（来自供应商）
+- 文件2：采购订单（来自ERP）
+- 文件3：收货确认/服务确认（来自运营部门）
+
+未经收货确认，绝不批准直接材料发票。
+
+---
+
+## 强制输出头
 
 ```
-TASK:          [e.g. Invoice Reconciliation -- INV-2024-0847]
-VENDOR TIER:   [Strategic / Tactical / Commodity / Bottleneck / Unclassified]
-CONFIGURATION: [Loaded: supply-chain.local.md / Not configured]
-DATA SOURCES:  [ERP / AP system / QCC MCP / Manual input]
-VENDOR STATUS: [QCC Validated / QCC Flagged / Non-Chinese Vendor]
+任务:          [例如：发票对账 -- INV-2024-0847]
+供应商层级:    [战略型 / 战术型 / 普通型 / 瓶颈型 / 未分类]
+配置:          [已加载：supply-chain.local.md / 未配置]
+数据来源:      [ERP / AP系统 / 企查查MCP / 手工输入]
+供应商状态:    [企查查已验证 / 企查查标记 / 非中国供应商]
 ```

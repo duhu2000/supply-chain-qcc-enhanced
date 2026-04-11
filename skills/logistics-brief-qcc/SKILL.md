@@ -1,25 +1,24 @@
 ---
 name: logistics-brief-qcc
 description: >
-  Activate for: logistics, carrier, freight, shipping, route, delivery,
-  on-time delivery, OTD carrier, logistics performance, carrier review,
-  freight cost, cost per kg, lane analysis, route optimisation, logistics brief,
-  carrier scorecard, logistics KPI, shipping performance, freight audit.
+  适用于：物流、承运商、货运、运输、路线、交付、
+  准时交付、承运商绩效、物流简报、承运商记分卡、
+  物流KPI、运输绩效、运费审计。
 
-  **QCC MCP Enhanced**: Validates Chinese carrier registration and risk status
-  for carrier selection and contract decisions.
+  **企查查MCP增强版**：验证中国承运商工商登记和风险状态
+  用于承运商选择和合同决策。
 
-  NOT for: supply network facility placement (use network-design), vendor
-  assessment (use vendor-assessment-qcc), spend category analysis (use spend-analysis-qcc).
+  不适用于：供应网络设施选址（使用network-design）、供应商
+  评估（使用vendor-assessment-qcc）、支出类别分析（使用spend-analysis-qcc）。
 license: Apache-2.0
 metadata:
-  author: Panaversity (Enhanced with QCC MCP)
+  author: Panaversity (企查查MCP增强版)
   version: "2.0"
   plugin-commands: "/logistics-brief-qcc"
-  mcp-integrations: "QCC MCP (Company/Risk), TMS, ERP"
+  mcp-integrations: "企查查MCP (Company/Risk), TMS, ERP"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
 ```bash
 # ~/.claude/.mcp.json
@@ -33,50 +32,50 @@ metadata:
 
 ---
 
-## QCC ENHANCEMENT — CHINESE CARRIER VALIDATION
+## QCC 增强功能 — 中国承运商验证
 
-### Carrier Risk Check for Chinese Logistics Providers
+### 中国物流提供商承运商风险检查
 
-For Chinese carriers/freight forwarders, **AUTO-CHECK** QCC:
+中国承运商/货运代理**自动检查**企查查：
 
-1. **Business Registration**
-   - Transport license verification
-   - Operating status
-   - Business scope (road freight, air cargo, etc.)
+1. **工商登记**
+   - 运输许可证验证
+   - 经营状态
+   - 经营范围（道路货运、空运等）
 
-2. **Risk Signals**
-   - Administrative penalties
-   - Operating anomalies
-   - Legal disputes
+2. **风险信号**
+   - 行政处罚
+   - 经营异常
+   - 法律纠纷
 
-### QCC Carrier Risk Output
+### 企查查承运商风险输出
 
 ```
-CHINESE CARRIER VALIDATION — QCC Enhanced
+中国承运商验证 — 企查查增强版
 ================================================================
-Carrier:             [Name]
-Unified Credit Code: [Code]
+承运商:          [名称]
+统一信用代码:    [代码]
 ----------------------------------------------------------------
-REGISTRATION:
-  Status:            [Active/Suspended]
-  Transport License: [Verified/Missing]
-  Scope:             [Road/Air/Sea/Multimodal]
+登记:
+  状态:          [存续/注销]
+  运输许可证:    [已验证/缺失]
+  范围:          [道路/空运/海运/多式联运]
 
-RISK SIGNALS:
-  Admin Penalties:   [Count]
-  Operating Anomaly: [Yes/No]
+风险信号:
+  行政处罚:      [数量]
+  经营异常:      [是/否]
 
-STATUS:              [✅ APPROVED / ⚠️ REVIEW / ❌ REJECT]
+状态:            [✅ 批准 / ⚠️ 审查 / ❌ 拒绝]
 ================================================================
 ```
 
 ---
 
-## MANDATORY OUTPUT HEADER
+## 强制输出头
 
 ```
-TASK:          [e.g. Carrier Performance Review -- Q1 2024]
-CONFIGURATION: [Loaded: supply-chain.local.md / Not configured]
-DATA SOURCES:  [TMS / ERP / QCC MCP / Carrier APIs]
-CARRIER STATUS: [QCC Validated / Standard]
+任务:          [例如：承运商绩效审查 -- Q1 2024]
+配置:          [已加载：supply-chain.local.md / 未配置]
+数据来源:      [TMS / ERP / 企查查MCP / 承运商API]
+承运商状态:    [企查查已验证 / 标准]
 ```

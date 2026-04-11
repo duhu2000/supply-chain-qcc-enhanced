@@ -1,108 +1,101 @@
 ---
 name: spend-analysis-qcc
 description: >
-  Analyses procurement spend data to find savings with QCC vendor intelligence.
-  Activate for: spend analysis, spend analytics, analyse spend, procurement spend,
-  category spend, spend across sites, vendor consolidation, supplier consolidation,
-  price consistency, price benchmark, market benchmark, RFQ strategy, spend report,
-  category management, tail spend, maverick spend, buying compliance, savings pipeline.
+  分析采购支出数据以发现节约机会，整合企查查供应商情报。
+  适用于：支出分析、支出分析、分析支出、采购支出、
+  品类支出、跨站点支出、供应商整合、价格一致性、
+  价格基准、市场基准、RFQ策略、支出报告、品类管理。
 
-  **QCC MCP Enhanced**: Automatically enriches Chinese vendor profiles with
-  registration data, risk signals, and operational metrics for informed consolidation decisions.
+  **企查查MCP增强版**：自动用工商数据、风险信号和经营指标
+  丰富中国供应商档案，为整合决策提供信息。
 
-  NOT for: invoice reconciliation (use invoice-reconciliation-qcc), vendor risk
-  assessment (use supplier-risk-qcc), carrier performance (use logistics-brief-qcc).
+  不适用于：发票对账（使用invoice-reconciliation-qcc）、供应商风险
+  评估（使用supplier-risk-qcc）、承运商绩效（使用logistics-brief-qcc）。
 license: Apache-2.0
 metadata:
-  author: Panaversity (Enhanced with QCC MCP)
+  author: Panaversity (企查查MCP增强版)
   version: "2.0"
   plugin-commands: "/spend-analysis-qcc"
-  mcp-integrations: "QCC MCP (Company/Risk), ERP, finance system"
+  mcp-integrations: "企查查MCP (Company/Risk), ERP, finance system"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
-**⚠️ Important: For Chinese vendor enrichment, QCC MCP is required**
+**⚠️ 重要：中国供应商丰富需要企查查MCP**
 
 ```bash
 # ~/.claude/.mcp.json
 {
   "mcpServers": {
-    "qcc-company": {
-      "url": "https://agent.qcc.com/mcp/company/stream",
-      "headers": { "Authorization": "Bearer ${QCC_MCP_API_KEY}" }
-    },
-    "qcc-risk": {
-      "url": "https://agent.qcc.com/mcp/risk/stream",
-      "headers": { "Authorization": "Bearer ${QCC_MCP_API_KEY}" }
-    }
+    "qcc-company": { "url": "https://agent.qcc.com/mcp/company/stream" },
+    "qcc-risk": { "url": "https://agent.qcc.com/mcp/risk/stream" }
   }
 }
 ```
 
 ---
 
-## QCC ENHANCEMENT — CHINESE VENDOR INTELLIGENCE
+## QCC 增强功能 — 中国供应商情报
 
-### Vendor Enrichment for Consolidation Analysis
+### 整合分析供应商丰富
 
-For Chinese vendors in spend analysis, **AUTO-ENRICH** with QCC data:
+支出分析中的中国供应商**自动丰富**企查查数据：
 
-1. **Vendor Registration Status (qcc-company)**
-   - Business status verification
-   - Registered capital assessment
-   - Business scope alignment
+1. **供应商登记状态（qcc-company）**
+   - 工商状态验证
+   - 注册资本评估
+   - 经营范围匹配
 
-2. **Risk Signal Overlay (qcc-risk)**
-   - Operating anomaly flags
-   - Administrative penalty history
-   - Litigation involvement
+2. **风险信号覆盖（qcc-risk）**
+   - 经营异常标记
+   - 行政处罚历史
+   - 涉诉情况
 
-3. **Operational Scale Indicators**
-   - Employee count trends
-   - Branch network
-   - Historical growth indicators
+3. **经营规模指标**
+   - 员工数量趋势
+   - 分支机构网络
+   - 历史增长指标
 
-### QCC Vendor Scorecard
+### 企查查供应商记分卡
 
 ```
 ================================================================
-CHINESE VENDOR INTELLIGENCE — QCC Enhanced
+中国供应商情报 — 企查查增强版
 ================================================================
-Vendor:              [Name]
-Annual Spend:        [Amount]
-QCC Risk Rating:     [Low/Medium/High/Critical]
+供应商:          [名称]
+年度支出:        [金额]
+企查查风险评级:   [低/中/高/严重]
 ----------------------------------------------------------------
-REGISTRATION STATUS:
-  Business Status:   [Active/Suspended]
-  Registered Cap:    [Amount]
-  Established:       [Year]
+登记状态:
+  工商状态:      [存续/注销]
+  注册资本:      [金额]
+  成立时间:      [年份]
 
-RISK INDICATORS:
-  Operating Anomaly: [Yes/No]
-  Admin Penalties:   [Count/Year]
-  Litigation:        [Count as defendant]
+风险指标:
+  经营异常:      [是/否]
+  行政处罚:      [数量/年]
+  涉诉:          [被告数量]
 
-CONSOLIDATION SUITABILITY:
-  [✅ PREFERRED / ⚠️ REVIEW / ❌ EXCLUDE]
+整合适用性:
+  [✅ 首选 / ⚠️ 审查 / ❌ 排除]
 ================================================================
 ```
 
 ---
 
-## UNIVERSAL RULES
+## 通用规则
 
-- NEVER accept a vendor risk assessment with fabricated financial data
-- **FOR CHINESE VENDORS: ALWAYS use QCC data for consolidation decisions**
-- ALWAYS include specific recommended actions with deadlines
+- 绝不接受包含虚构财务数据的供应商风险评估
+- **中国供应商：整合决策始终使用企查查数据**
+- 始终包含具体建议行动和截止日期
 
 ---
 
-## MANDATORY OUTPUT HEADER
+## 强制输出头
 
 ```
-TASK:          [e.g. Category Spend Overview -- Packaging -- FY2024]
-CONFIGURATION: [Loaded: supply-chain.local.md / Not configured]
-DATA SOURCES:  [ERP / Finance system / QCC MCP / Web search]
-VENDOR ENRICH: [QCC Enhanced / Standard]
+任务:          [例如：品类支出概览 -- 包装 -- FY2024]
+配置:          [已加载：supply-chain.local.md / 未配置]
+数据来源:      [ERP / 财务系统 / 企查查MCP / 网络搜索]
+供应商丰富:    [企查查增强 / 标准]
 ```
