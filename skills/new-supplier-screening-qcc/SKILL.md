@@ -1,5 +1,5 @@
 ---
-name: new-supplier-screening-qcc
+name: 新供应商快速筛选-new-supplier-screening-qcc
 description: >
   新供应商快速筛选 SKILL · 企查查 MCP V2.0 增强版。
   招投标或采购寻源阶段对候选供应商的批量快速筛选工具。与"供应商准入评估"的深度核验不同，本 SKILL 聚焦"快速筛选 + 去伪存真"——一次扫描多家候选供应商，输出排序后的短名单。V2.0 新增双随机抽查作为合规筛选利器。

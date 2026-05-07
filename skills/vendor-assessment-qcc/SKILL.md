@@ -1,5 +1,5 @@
 ---
-name: vendor-assessment-qcc
+name: 供应商准入评估-vendor-assessment-qcc
 description: >
   供应商准入评估 SKILL · 企查查 MCP V2.0 增强版。
   采购准入阶段的供应商深度尽调工具。输入供应商名称，AI 完成 9 维度风险评估，覆盖 34 类中国特有风险信号（司法执行 / 经营异常 / 税务违规 / 破产风险等），V2.0 新增双随机抽查 + 历史处罚两层维度，输出结构化准入报告。

@@ -1,5 +1,5 @@
 ---
-name: supplier-annual-check-qcc
+name: 供应商年度健康体检-supplier-annual-check-qcc
 description: >
   供应商年度健康体检 SKILL · 企查查 MCP V2.0 增强版。
   供应商年度评审的标准化核查工具。对核心供应商进行全面年度体检，V2.0 新增真实财务 YoY 对比 + 双随机抽查 + 历史对比三层能力，一次性输出经营状态变化、资质证件到期情况、信用记录变更、财务指标退化预警的结构化报告。
