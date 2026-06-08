@@ -60,9 +60,9 @@ metadata:
 
 对每家供应商获取法代姓名（`get_company_registration_info`），然后批量调用：
 
-- `mcp__qcc-executive__get_personnel_dishonest` —— 法代个人失信
-- `mcp__qcc-executive__get_personnel_exit_restriction` —— 法代限制出境（跨境业务强预警）
-- `mcp__qcc-executive__get_personnel_high_consumption_ban` —— 法代限高
+- `mcp__qcc-executive__get_executive_dishonest` —— 法代个人失信
+- `mcp__qcc-executive__get_executive_exit_restriction` —— 法代限制出境（跨境业务强预警）
+- `mcp__qcc-executive__get_executive_high_consumption_ban` —— 法代限高
 
 **任一命中 → S 级预警**（企业当前清洁 + 法代出险 = 企业在 3-6 个月内极可能爆雷的先行信号）。
 

@@ -63,7 +63,7 @@ metadata:
 `mcp__qcc-history__get_historical_admin_penalty` —— 识别 5 年内是否有已处罚但已结清的合规瑕疵，对"长期清洁"和"修复型供应商"差异化评估。
 
 ### 维度八：法代 × 实控人个人快扫
-`get_personnel_dishonest` / `get_personnel_exit_restriction`（对跨境供应商特别关键）
+`get_executive_dishonest` / `get_executive_exit_restriction`（对跨境供应商特别关键）
 
 ### 维度九：破产风险识别
 `get_bankruptcy_reorganization` / `get_liquidation_info`
