@@ -62,8 +62,8 @@ metadata:
 ### 维度七：历史处罚追溯（V2.0 新能力）
 `mcp__qcc-history__get_historical_admin_penalty` —— 识别 5 年内是否有已处罚但已结清的合规瑕疵，对"长期清洁"和"修复型供应商"差异化评估。
 
-### 维度八：法代 × 实控人个人快扫
-`get_executive_dishonest` / `get_executive_exit_restriction`（对跨境供应商特别关键）
+### 维度八：法代 × 实控人个人快扫（先扫后钻）
+**先调 `mcp__qcc-executive__get_executive_risk_scan`（searchKey=企业 + personName=姓名，双锚）一次分诊法代/实控人 18 项个人风险维度 → 仅对 count>0 维度下钻对应 `get_executive_*` 原子**（如失信 `get_executive_dishonest`、限出境 `get_executive_exit_restriction`，对跨境供应商特别关键）；count=0 跳过，❌ 禁逐个散弹枪；多人则逐人各扫一次。
 
 ### 维度九：破产风险识别
 `get_bankruptcy_reorganization` / `get_liquidation_info`
